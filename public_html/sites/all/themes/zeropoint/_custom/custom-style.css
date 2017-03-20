@@ -39,7 +39,7 @@ html, .pure-g [class*="pure-u"] {
 	font-weight: 300;
 }
 
-body, p {
+body p, body li, body blockquote {
 	font-size: 18px;
 }
 
@@ -230,6 +230,7 @@ ul.pure-menu-children li.pure-menu-item a {
 	h1, h2, h3, h4, h5, h6 {
 		color: #f2923e;
 		font-weight: 600;
+		margin-top: 2em;
 	}
 
 	h5 {
@@ -238,7 +239,7 @@ ul.pure-menu-children li.pure-menu-item a {
 		font-size: 1.3em;
 	}
 
-	p {
+	p, li, blockquote {
 		line-height: 1.5em;
 	}
 
@@ -316,17 +317,25 @@ ul.pure-menu-children li.pure-menu-item a {
 		padding-left: 2em;
 	} 
 */
+	div.content .openingsentence {
+		font-size: 1.3em;
+		font-weight: 300;
+		font-style: italic;
+		color: #f2923e;
+	}
 	div.content img.alignright {
 		float: right;
 		max-width: 50%;
 		margin-right: -5%;
-		padding: 0 0 0 2em;
+		margin-left: 2em;
+		/*padding: 0 0 0 2em;*/
 	}
 	div.content img.alignleft {
 		float: left;
 		max-width: 50%;
 		margin-left: -5%;
-		padding: 0 2em 0 0;
+		margin-right: 2em;
+		/*padding: 0 2em 0 0;*/
 	}
 	/* Use alignfull with restraint */
 	div.content img.alignfull {
@@ -334,28 +343,39 @@ ul.pure-menu-children li.pure-menu-item a {
 		clear: all;
 		margin-left: -5%;
 		width: 110%;
-		padding: 1em 0 1em 0;
+		margin-top: 1em;
+		margin-bottom: 1em;
+		/*padding: 1em 0 1em 0;*/
 	}
 
 	/******************************************************/
 	/* UUCH » FOOTER                                      */
 	/******************************************************/
-	#footer{
-		margin: 0px 20px;
-		padding: 5px 0 0 0;
-	}
 	/* 
 		For reasons mysterious to me, the footer #menu2 object 
 		is NOT inside of #footer, instead preceding it.
 	*/
-	/* footer menu links */
 	#menu2 {
 		text-align: center;
-		padding-left: 1em;
-		padding-right: 1em;
+		border-top: 1px solid #ddd;
+		padding-top: 1em;
 	}
 	#menu2 > li {
 		border: none;
+		font-size: 18px;
+		padding-left: 0.25em;
+		padding-right: 0.25em;
+	}
+	#footer{
+		margin: 10px 0 10px 0;
+	}
+	#footer .region-footer p {
+		font-size: 14px;
+		text-align: center;
+		line-height: 1.2em;
+	}
+	div#soclinks {
+		/* reserved */
 	}
 
 	/******************************************************/
@@ -366,8 +386,8 @@ ul.pure-menu-children li.pure-menu-item a {
 		#main h1.title {
 			font-size: 32px;
 		}
-		#main .region-content p {
-			font-size: 21px;
+		#main .region-content p, #main .region-content li {
+			/*font-size: 120%;*/
 		}
 	}
 
@@ -384,6 +404,17 @@ ul.pure-menu-children li.pure-menu-item a {
 		div.content img.alignfull {
 			margin-left: 0;
 			width: 100%;
+		}
+	}
+
+
+	@media screen and (min-width: 768px) and (max-height: 720px) {
+		.pure-menu a {
+			/*font-size: 19px;*/
+		}
+		ul.pure-menu-children li.pure-menu-item a.pure-menu-link {
+			padding: 4px 15px 4px 15px;
+			font-size: 16px;
 		}
 	}
 
@@ -455,11 +486,45 @@ ul.pure-menu-children li.pure-menu-item a {
 		color:#3333FF;
 	}
 
+	/******************************************************/
+	/* UUCH: Pointless Animation Fun                      */
+	/******************************************************/
+
+	@keyframes growfunover {
+		0% { transform: scale(1); box-shadow: none; }
+		/*80% { transform: scale(1.035); }*/
+		100% { 
+			transform: scale(1.02);
+			/* offset-x | offset-y | blur-radius | spread-radius | color */
+			box-shadow: 3px 5px 5px 0px rgba(0, 0, 0, 0.1);
+		}
+	}
+
+	@keyframes growfunout {
+		0% { transform: scale(1.02); box-shadow: 3px 5px 5px 0px rgba(0, 0, 0, 0.1);}
+		100% { transform: scale(1); box-shadow: none;}
+	}
+
+	div.content img.alignright:hover, div.content img.alignleft:hover, div.content img.alignfull:hover {
+		transform: scale(1.02); 
+	    animation-name: growfunover;
+	    animation-duration: 0.5s;
+		animation-timing-function: ease;
+		/* offset-x | offset-y | blur-radius | spread-radius | color */
+		box-shadow: 3px 5px 5px 0px rgba(0, 0, 0, 0.1);
+	}
+	div.content img.alignright, div.content img.alignleft, div.content img.alignfull {
+		transform: scale(1);
+		box-shadow: none;
+	    animation-name: growfunout;
+	    animation-duration: 1.5s;
+	}
+
 
 
 /******************************************************/
 /* Make the Google Maps embed responsive              */
-/* ************************************************** */
+/* ****************************************************/
 	.google-maps {
 	    position: relative;
 	    padding-bottom: 43.47%; // This is the aspect ratio
