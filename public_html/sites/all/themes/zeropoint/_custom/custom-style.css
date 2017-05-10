@@ -120,8 +120,9 @@ ul.pure-menu-children li.pure-menu-item a {
 }
 
 .pure-menu-link .active {
-	color: #cd774f !important;
-	font-weight: 300;
+	/* COLOR AND FONT WEIGHT GET OVERRULED SOMEWHERE. DON'T BOTHER SETTING. YEY.*/
+	/*color: #cd774f !important;*/
+	/*font-weight: 600;*/
 }
 
 /* Middle menu items */
@@ -133,12 +134,14 @@ ul.pure-menu-children li.pure-menu-item a {
 /* Children color */
 
 .pure-menu-children .pure-menu-link {
-	color: #cd774f !important;
+	/*color: #cd774f;*/
 	background: #fff;
 }
 
 .pure-menu-children .pure-menu-link:hover {
-	background: #eee;
+	/*background: #eee;*/
+	background-color: rgba(242,146,62,0.0125);
+	background-image: linear-gradient(rgba(242,146,62,0.01),rgba(242,146,62,0.05));
 }
 
 
@@ -461,10 +464,14 @@ ul.pure-menu-children li.pure-menu-item a {
 		font-size: .8em;
 	}
 	li a.active{
-		color: #eee;
+		color: rgba(242,146,62,1);
+		background-color: rgba(242,146,62,0.0125);
+		background-image: linear-gradient(rgba(242,146,62,0.01),rgba(242,146,62,0.05));
 	}
 	li a.hover{
 		color: #F2923E;
+		background-color: rgba(242,146,62,0.0125);
+		background-image: linear-gradient(rgba(242,146,62,0.01),rgba(242,146,62,0.05));
 	} 
 	.first a.hover{
 		/*background-color: #6c2402;*/
@@ -489,37 +496,37 @@ ul.pure-menu-children li.pure-menu-item a {
 	/******************************************************/
 	/* UUCH: Pointless Animation Fun                      */
 	/******************************************************/
-
-	@keyframes growfunover {
-		0% { transform: scale(1); box-shadow: none; }
-		/*80% { transform: scale(1.035); }*/
-		100% { 
-			transform: scale(1.02);
-			/* offset-x | offset-y | blur-radius | spread-radius | color */
-			box-shadow: 3px 5px 5px 0px rgba(0, 0, 0, 0.1);
-		}
-	}
-
-	@keyframes growfunout {
-		0% { transform: scale(1.02); box-shadow: 3px 5px 5px 0px rgba(0, 0, 0, 0.1);}
-		100% { transform: scale(1); box-shadow: none;}
-	}
-
-	div.content img.alignright:hover, div.content img.alignleft:hover, div.content img.alignfull:hover {
-		transform: scale(1.02); 
-	    animation-name: growfunover;
-	    animation-duration: 0.5s;
-		animation-timing-function: ease;
-		/* offset-x | offset-y | blur-radius | spread-radius | color */
-		box-shadow: 3px 5px 5px 0px rgba(0, 0, 0, 0.1);
-	}
-	div.content img.alignright, div.content img.alignleft, div.content img.alignfull {
-		transform: scale(1);
-		box-shadow: none;
-	    animation-name: growfunout;
-	    animation-duration: 1.5s;
-	}
-
+/*
+ *	@keyframes growfunover {
+ *		0% { transform: scale(1); box-shadow: none; }
+ *		80% { transform: scale(1.035); }
+ *		100% { 
+ *			transform: scale(1.02);
+ *			// offset-x | offset-y | blur-radius | spread-radius | color
+ *			box-shadow: 3px 5px 5px 0px rgba(0, 0, 0, 0.1);
+ *		}
+ *	}
+ *
+ *	@keyframes growfunout {
+ *		0% { transform: scale(1.02); box-shadow: 3px 5px 5px 0px rgba(0, 0, 0, 0.1);}
+ *		100% { transform: scale(1); box-shadow: none;}
+ *	}
+ *
+ *	div.content img.alignright:hover, div.content img.alignleft:hover, div.content img.alignfull:hover {
+ *		transform: scale(1.02); 
+ *	    animation-name: growfunover;
+ *	    animation-duration: 0.5s;
+ *		animation-timing-function: ease;
+ *		// offset-x | offset-y | blur-radius | spread-radius | color
+ *		box-shadow: 3px 5px 5px 0px rgba(0, 0, 0, 0.1);
+ *	}
+ *	div.content img.alignright, div.content img.alignleft, div.content img.alignfull {
+ *		transform: scale(1);
+ *		box-shadow: none;
+ *	    animation-name: growfunout;
+ *	    animation-duration: 1.5s;
+ *	}
+ */
 
 
 /******************************************************/
